@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-class MainTest {
+class AppTest {
 
     @Test
     void testMain() {
-        assertDoesNotThrow(() -> Main.main(new String[]{}));
+        assertDoesNotThrow(() -> App.main(new String[]{}));
     }
 }

@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa904cdf-4643-4fd0-b4df-3eb95ba76099" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/trueQRNG/LibQRNG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/trueQRNG/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/trueQRNG/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/trueQRNG/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/trueQRNG/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/functions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/functions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +137,7 @@
       <workItem from="1684242609876" duration="127000" />
       <workItem from="1684253702572" duration="1121000" />
       <workItem from="1684254961289" duration="48000" />
-      <workItem from="1684255024116" duration="1618000" />
+      <workItem from="1684255024116" duration="1908000" />
     </task>
     <servers />
   </component>

@@ -279,10 +279,6 @@ libQRNG.so was loaded
                  U _ZTVSt15basic_stringbufIcSt11char_traitsIcESaIcEE@GLIBCXX_3.4
                  U _ZTVSt18basic_stringstreamIcSt11char_traitsIcESaIcEE@GLIBCXX_3.4
                  U _ZTVSt9basic_iosIcSt11char_traitsIcEE@GLIBCXX_3.4
-credential.getKey(): eduardberlin , credential.getValue(): Kc99xl9hOJFY
-Exception in thread "main" java.lang.UnsatisfiedLinkError: 'void org.trueQRNG.App.qrng_disconnect()'
-	at org.trueQRNG.App.qrng_disconnect(Native Method)
-	at org.trueQRNG.App.callFunctions(App.java:69)
-	at org.trueQRNG.App.main(App.java:93)
+
 
 Process finished with exit code 1

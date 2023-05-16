@@ -1,17 +1,12 @@
 package org.trueQRNG;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import java.util.Map;
 
 public class App {
-
 	static {
 		try {
 			System.load("/home/enextus/dev/trueqrng/trueQRNG/lib/libQRNG.so");
-			System.out.println("libQRNG.so was "
-					+ "loaded");
+			System.out.println("libQRNG.so was loaded");
 		}
 		catch (UnsatisfiedLinkError e) {
 			System.err.println("Native code library failed to load.\n" + e);
@@ -19,27 +14,16 @@ public class App {
 		}
 	}
 
-	// Объявление нативных функций
+	// Declaration of native functions
 	public native int qrng_connect(String username, String password);
-
 	public native int qrng_connect_SSL(String username, String password);
-
-	public native int qrng_get_byte_array(char[] byte_array, int byte_array_size, int[] actual_bytes_rcvd);
-
-	public native int qrng_get_double(double[] value);
-
-	public native int qrng_get_double_array(double[] double_array, int double_array_size, int[] actual_doubles_rcvd);
-
-	public native int qrng_get_int(int[] value);
+	public native void qrng_disconnect();
+	public native void print_qrng_errors();
 
 	public native int qrng_get_int_array(int[] int_array, int int_array_size, int[] actual_ints_rcvd);
 
-	public native int qrng_generate_password(String tobeused_password_chars, char[] generated_password, int password_length);
-
-	public native void qrng_disconnect();
 
 	public static final String USERNAME = "eduardberlin";
-
 	public static final String USERPASSWORD = "Kc99xl9hOJFY";
 
 	private static final Map<String, String> CREDENTIALS = Map.of(USERNAME, USERPASSWORD);
@@ -48,7 +32,7 @@ public class App {
 		try {
 			for (Map.Entry<String, String> credential : CREDENTIALS.entrySet()) {
 
-				System.out.println("credential.getKey(): " + credential.getKey() + " , credential.getValue(): " + credential.getValue());
+
 
 				int result = this.qrng_connect(credential.getKey(), credential.getValue());
 
@@ -57,39 +41,53 @@ public class App {
 
 				if (result == 0) {
 					System.out.println("Connection successful");
+					System.out.println("1000");
 				}
 				else {
+					System.out.println("666");
 					throw new RuntimeException("Connection failed with username: " + credential.getKey() + " and password: " + credential.getValue());
 				}
-
 				System.out.println();
 			}
 		}
 		finally {
-			this.qrng_disconnect();
+//			this.qrng_disconnect();
 		}
 	}
 
-	public static void main(String[] args) {
-
-		try {
-			String libraryPath = "/home/enextus/dev/trueqrng/trueQRNG/lib/libQRNG.so";
-
-			Process process = Runtime.getRuntime().exec("nm -D " + libraryPath);
-			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-
-			String line;
-			while ((line = reader.readLine()) != null) {
-				System.out.println(line);
-			}
-
-			reader.close();
-		} catch (Exception e) {
-			e.printStackTrace();
+	public void getIntArray() {
+		// Подключаемся к сервису QRNG
+		int connectionResult = this.qrng_connect(USERNAME, USERPASSWORD);
+		if (connectionResult != 0) {
+			System.out.println("Connection failed with error code: " + connectionResult);
+			this.print_qrng_errors();
+			return;
 		}
 
+		// Создаем массив для получения данных и массив для записи фактического количества полученных чисел
+		int arraySize = 100;  // Пример размера массива
+		int[] intArray = new int[arraySize];
+		int[] actualIntsRcvd = new int[1];
 
+		// Вызываем функцию qrng_get_int_array
+		int result = this.qrng_get_int_array(intArray, arraySize, actualIntsRcvd);
+		if (result != 0) {
+			System.out.println("qrng_get_int_array failed with error code: " + result);
+			this.print_qrng_errors();
+		} else {
+			System.out.println("Received " + actualIntsRcvd[0] + " integers from QRNG service.");
+			// Теперь вы можете использовать данные в intArray
+			// ...
+		}
+
+		// Закрываем соединение
+		this.qrng_disconnect();
+	}
+
+
+	public static void main(String[] args) {
 		App qrng = new App();
+
 		qrng.callFunctions();
 	}
 }

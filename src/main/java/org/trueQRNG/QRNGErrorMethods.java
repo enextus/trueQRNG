@@ -13,12 +13,12 @@ public class QRNGErrorMethods {
 		}
 	}
 
-	private static List<String> getErrorMethods() {
+	static List<String> getErrorMethods() {
 		List<String> errorMethods = new ArrayList<>();
 		Field[] fields = _qrng_error.class.getFields();
 
 		for (Field field : fields) {
-			if (Modifier.isStatic(field.getModifiers()) && field.getType().equals(int.class)) {
+			if (Modifier.isStatic(field.getModifiers()) && field.getType().equals(_qrng_error.class)) {
 				String methodName = field.getName();
 				String errorMethodName = "qrng_" + methodName.toLowerCase();
 
@@ -28,6 +28,7 @@ public class QRNGErrorMethods {
 
 		return errorMethods;
 	}
+
 
 	private enum _qrng_error {
 		QRNG_SUCCESS,

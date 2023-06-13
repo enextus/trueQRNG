@@ -19,9 +19,16 @@ public class App {
 
 	// Declaration of native functions
 	public native int qrng_connect(String username, String password);
+
+	public native int qrng_connect_and_get_int(String username, String password);
+
+
 	public native void qrng_disconnect();
+
 	public native void print_qrng_errors();
+
 	public native int qrng_get_int_array(int[] int_array, int int_array_size, int[] actual_ints_rcvd);
+
 	private static final String CONFIG_FILE = "config.properties";
 	private String username;
 	private String password;
@@ -34,12 +41,24 @@ public class App {
 		try (InputStream input = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE)) {
 			Properties properties = new Properties();
 			properties.load(input);
-
 			username = properties.getProperty("username");
 			password = properties.getProperty("password");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	public void callQrngConnectAndGetInt() {
+		// Connect to the QRNG service and get int
+		System.out.println("try to use qrng_connect_and_get_int");
+		int randomInt = this.qrng_connect_and_get_int(username, password);
+		if (randomInt == -1) {  // assuming -1 indicates an error
+			System.out.println("qrng_connect_and_get_int failed");
+			this.print_qrng_errors();
+		}
+		else {
+			System.out.println("Received integer from QRNG service: " + randomInt);
 		}
 	}
 
@@ -106,16 +125,26 @@ public class App {
 	}
 
 	public static void main(String[] args) {
+		App qrng = new App();
+		System.out.println("Calling qrng_connect_and_get_int: \n");
+		qrng.callQrngConnectAndGetInt();
+		System.out.println("Finished calling qrng_connect_and_get_int: \n");
+
 		List<String> errorMethods = QRNGErrorMethods.getErrorMethods();
 
+		System.out.println("start errorMethods: \n");
 		for (String method : errorMethods) {
 			System.out.println(method);
 		}
+		System.out.println("stop errorMethods: \n");
 
-		App qrng = new App();
 
 		qrng.callFunctions();
+
+		System.out.println("start getIntArray: \n");
 		qrng.getIntArray();
+		System.out.println("stop getIntArray: \n");
+
 	}
 
 }

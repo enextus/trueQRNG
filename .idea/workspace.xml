@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa904cdf-4643-4fd0-b4df-3eb95ba76099" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/trueQRNG/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/trueQRNG/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/trueQRNG/QRNGErrorMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/trueQRNG/QRNGErrorMethods.java" afterDir="false" />
@@ -139,9 +138,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppTest" />
         <item itemvalue="Application.QRNGErrorMethods" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +160,11 @@
       <workItem from="1684255024116" duration="4744000" />
       <workItem from="1684314482477" duration="602000" />
       <workItem from="1684319107284" duration="190000" />
-      <workItem from="1684327030649" duration="797000" />
+      <workItem from="1684327030649" duration="2384000" />
+      <workItem from="1684437711244" duration="14000" />
+      <workItem from="1684437883591" duration="140000" />
+      <workItem from="1684591336454" duration="237000" />
+      <workItem from="1686677632780" duration="77000" />
     </task>
     <servers />
   </component>

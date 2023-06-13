@@ -29,7 +29,6 @@ public class QRNGErrorMethods {
 		return errorMethods;
 	}
 
-
 	private enum _qrng_error {
 		QRNG_SUCCESS,
 		QRNG_ERR_FAILED_TO_BASE_INIT,
@@ -54,4 +53,5 @@ public class QRNGErrorMethods {
 		QRNG_ERR_FAILED_TO_READ_PASS_REPLY,
 		QRNG_ERR_FAILED_TO_SEND_COMMAND
 	}
+
 }
